@@ -1,10 +1,44 @@
 {
-    "bås1":{
-        "isOccupied": false,
-        "occupiedBy": "name",
-        "bookings":{
-            "2023-11-23T13:30:00+00:00": ["Attila", "2023-11-23T14:00:00+00:00"],
-            "2023-11-23T14:00:00+00:00": ["Attila", "2023-11-23T15:00:00+00:00"]
+  "båser": {
+    "bås1": {
+      "isOccupied": false,
+      "occupiedBy": "name",
+      "bookings": [
+        {
+          "name": "Atilla",
+          "start": "asd",
+          "end": "asd"
+        },
+        {
+          "name": "Musa",
+          "start": "2023",
+          "end": "2025"
+        },
+        {
+          "name": "William",
+          "start": "2021",
+          "end": "2022"
+        },
+        {
+          "name": "Attila",
+          "start": "2023",
+          "end": "2030"
         }
+      ]
+    },
+    "bås2": {
+      "isOccupied": false,
+      "occupiedBy": "name",
+      "bookings": {
+        "booking1": {
+          "name": "Attila",
+          "start": "2023-11-23T14:00:00+00:00"
+        },
+        "booking2": {
+          "name": "Musa",
+          "start": "2023-11-23T14:00:00+00:00"
+        }
+      }
     }
+  }
 }
