@@ -1,24 +1,9 @@
 {
   "båser": [
-    {
+    { "name": "Alpha",
       "isOccupied": false,
       "occupiedBy": "name",
       "bookings": [
-        {
-          "name": "Atilla",
-          "start": "asd",
-          "end": "asd"
-        },
-        {
-          "name": "Musa",
-          "start": "2023",
-          "end": "2025"
-        },
-        {
-          "name": "William",
-          "start": "2021",
-          "end": "2022"
-        },
         {
           "name": "Max",
           "start": "10:30",
@@ -27,19 +12,12 @@
         }
       ]
     },
-    {
+    { "name": "Beta",
       "isOccupied": false,
       "occupiedBy": "name",
-      "bookings": {
-        "booking1": {
-          "name": "Attila",
-          "start": "2023-11-23T14:00:00+00:00"
-        },
-        "booking2": {
-          "name": "Musa",
-          "start": "2023-11-23T14:00:00+00:00"
-        }
-      }
+      "bookings": [
+        
+      ]
     }
   ]
 }
