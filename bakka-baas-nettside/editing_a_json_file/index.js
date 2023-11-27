@@ -3,6 +3,14 @@ const fs = require('fs');
 const { json } = require('stream/consumers');
 const app = express();
 const port = 3001;
+
+ 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+ 
+// Rest of your server setup
  
 app.listen(port, () => { // repeats port
     console.log(`Server lytter på port ${port}`);
