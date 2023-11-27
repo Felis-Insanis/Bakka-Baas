@@ -19,27 +19,29 @@ app.get('/info', function(request, response){ // shows the places.json file
 });
  
  
-app.post('/info/:name-:startDate-:endDate', function(request, response){
+app.post('/info/:name-:startDate-:endDate-:date', function(request, response){
  
     const newName = request.params.name
     const startD = request.params.startDate
     const endD = request.params.endDate
+    const Date = request.params.date
     fs.readFile('places.json', 'utf8', function readFileCallback(err, data){
         if (err){
             console.log(err);
         } else {
         obj = JSON.parse(data); //now it an object
-        console.log(obj['båser']['bås1']['bookings'])
+        console.log(obj['båser'][0]['bookings'])
         let booking3 = {
             "name": newName,
             "start": startD,
-            "end": endD
+            "end": endD,
+            "date": Date
             
             
         }
         console.log(booking3)
-        obj['båser']['bås1']['bookings'].push(booking3) //add some data
-        console.log(obj['båser']['bås1']['bookings'])
+        obj['båser'][0]['bookings'].push(booking3) //add some data
+       
         
  
  

@@ -1,6 +1,6 @@
 {
-  "båser": {
-    "bås1": {
+  "båser": [
+    {
       "isOccupied": false,
       "occupiedBy": "name",
       "bookings": [
@@ -20,18 +20,14 @@
           "end": "2022"
         },
         {
-          "name": "Attila",
-          "start": "2023",
-          "end": "2030"
-        },
-        {
-          "name": "Jonas",
-          "start": "2040",
-          "end": "2044"
+          "name": "Max",
+          "start": "10:30",
+          "end": "11:00",
+          "date": "10:11:23"
         }
       ]
     },
-    "bås2": {
+    {
       "isOccupied": false,
       "occupiedBy": "name",
       "bookings": {
@@ -45,5 +41,5 @@
         }
       }
     }
-  }
+  ]
 }
