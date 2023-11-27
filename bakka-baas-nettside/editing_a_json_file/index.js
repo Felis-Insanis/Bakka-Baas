@@ -57,4 +57,8 @@ app.post('/info/:name-:startDate-:endDate', function(request, response){
     }});
     
     response.send("Posted")
+});
+
+app.get("/date", function(request, response){
+    response.send(Date());
 })
