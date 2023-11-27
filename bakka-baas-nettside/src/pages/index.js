@@ -13,7 +13,7 @@ export default function Home() {
   const checkmarkStyles = "w-10 h-10";
   const xIconStyles = "w-11 h-11 text-red-500";
   const parentDivBaasStyles =
-    "flex flex-col gap-3 border-2 p-3 border-white justify-center items-start pl-8 h-full w-full ";
+    "flex flex-col gap-3 border-2 p-3 justify-center items-start pl-8 h-full w-full rounded-md";
   const childDivBaasStyles =
     "flex flex-row gap-4 w-full h-16 items-center items-center";
   return (
@@ -27,76 +27,80 @@ export default function Home() {
       {/* hvilke båser er ledige del av nettsiden */}
       <section className="flex justify-center items-center h-full w-full ">
         <div className="flex flex-col gap-5 w-1/2 text-xl sm:text-2xl medium:grid medium:grid-cols-2 medium:gap-6 medium:h-3/4 medium:w-1/2">
-          <div className={parentDivBaasStyles}>
-            {/*denne diven går rundt hver bås boks*/}
-            <span>Bås 1</span>
-            <div className={childDivBaasStyles}>
-              {/*sjekker om bås 1 er ledig, hvis den er ledig kjøres første del av koden, hvis den er opptatt kjøres andre del av koden*/}
-              {baas1Available ? (
-                <div className={childDivBaasStyles}>
-                  {" "}
-                  <span> Bås 1 er ledig</span>
-                  <FcCheckmark className={checkmarkStyles} />
-                </div>
-              ) : (
-                <div className={childDivBaasStyles}>
-                  <span>Bås 1 er opptatt</span>
-                  <IoMdClose className={xIconStyles} />
-                </div>
-              )}
+          {/*denne diven går rundt hver bås boks*/}
+          {/*sjekker om bås 1 er ledig, hvis den er ledig kjøres første del av koden, hvis den er opptatt kjøres andre del av koden*/}
+          {baas1Available ? (
+            <div className={`${parentDivBaasStyles}  border-green-500`}>
+              <span>Bås 1</span>
+              <div className={childDivBaasStyles}>
+                {" "}
+                <span> Bås 1 er ledig</span>
+                <FcCheckmark className={checkmarkStyles} />
+              </div>
             </div>
-          </div>{" "}
-          <div className={parentDivBaasStyles}>
-            <span>Bås 2</span>
-            <div className={childDivBaasStyles}>
-              {baas2Available ? (
-                <div className={childDivBaasStyles}>
-                  {" "}
-                  <span> Bås 2 er ledig</span>
-                  <FcCheckmark className={checkmarkStyles} />
-                </div>
-              ) : (
-                <div className={childDivBaasStyles}>
-                  <span>Bås 2 er opptatt</span>
-                  <IoMdClose className={xIconStyles} />
-                </div>
-              )}
+          ) : (
+            <div className={`${parentDivBaasStyles}  border-red-500`}>
+              <span>Bås 1</span>
+              <div className={childDivBaasStyles}>
+                <span>Bås 1 er opptatt</span>
+                <IoMdClose className={xIconStyles} />
+              </div>
             </div>
-          </div>{" "}
-          <div className={parentDivBaasStyles}>
-            <span>Bås 3</span>
-            <div className={childDivBaasStyles}>
-              {baas3Available ? (
-                <div className={childDivBaasStyles}>
-                  {" "}
-                  <span> Bås 3 er ledig</span>
-                  <FcCheckmark className={checkmarkStyles} />
-                </div>
-              ) : (
-                <div className={childDivBaasStyles}>
-                  <span>Bås 3 er opptatt</span>
-                  <IoMdClose className={xIconStyles} />
-                </div>
-              )}
+          )}
+          {baas2Available ? (
+            <div className={`${parentDivBaasStyles}  border-green-500`}>
+              <span>Bås 2</span>
+              <div className={childDivBaasStyles}>
+                {" "}
+                <span> Bås 2 er ledig</span>
+                <FcCheckmark className={checkmarkStyles} />
+              </div>
             </div>
-          </div>{" "}
-          <div className={parentDivBaasStyles}>
-            <span>Bås 4</span>
-            <div className={childDivBaasStyles}>
-              {baas4Available ? (
-                <div className={childDivBaasStyles}>
-                  {" "}
-                  <span> Bås 4 er ledig</span>
-                  <FcCheckmark className={checkmarkStyles} />
-                </div>
-              ) : (
-                <div className={childDivBaasStyles}>
-                  <span>Bås 4 er opptatt</span>
-                  <IoMdClose className={xIconStyles} />
-                </div>
-              )}
+          ) : (
+            <div className={`${parentDivBaasStyles}  border-red-500`}>
+              <span>Bås 2</span>
+              <div className={childDivBaasStyles}>
+                <span>Bås 2 er opptatt</span>
+                <IoMdClose className={xIconStyles} />
+              </div>
             </div>
-          </div>{" "}
+          )}
+          {baas3Available ? (
+            <div className={`${parentDivBaasStyles}  border-green-500`}>
+              <span>Bås 3</span>
+              <div className={childDivBaasStyles}>
+                {" "}
+                <span> Bås 3 er ledig</span>
+                <FcCheckmark className={checkmarkStyles} />
+              </div>
+            </div>
+          ) : (
+            <div className={`${parentDivBaasStyles}  border-red-500`}>
+              <span>Bås 3</span>
+              <div className={childDivBaasStyles}>
+                <span>Bås 3 er opptatt</span>
+                <IoMdClose className={xIconStyles} />
+              </div>
+            </div>
+          )}
+          {baas4Available ? (
+            <div className={`${parentDivBaasStyles}  border-green-500`}>
+              <span>Bås 4</span>
+              <div className={childDivBaasStyles}>
+                {" "}
+                <span> Bås 4 er ledig</span>
+                <FcCheckmark className={checkmarkStyles} />
+              </div>
+            </div>
+          ) : (
+            <div className={`${parentDivBaasStyles}  border-red-500`}>
+              <span>Bås 4</span>
+              <div className={childDivBaasStyles}>
+                <span>Bås 4 er opptatt</span>
+                <IoMdClose className={xIconStyles} />
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </main>
