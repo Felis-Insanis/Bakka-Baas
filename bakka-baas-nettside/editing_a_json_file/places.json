@@ -1,6 +1,7 @@
 {
   "båser": [
-    { "name": "Alpha",
+    {
+      "name": "Alpha",
       "isOccupied": false,
       "occupiedBy": "name",
       "bookings": [
@@ -9,15 +10,38 @@
           "start": "10:30",
           "end": "11:00",
           "date": "10:11:23"
+        },
+        {
+          "name": "Jonas",
+          "start": "10",
+          "end": "2040",
+          "date": "2044"
+        },
+        {
+          "name": "Henrik",
+          "start": "20:00",
+          "end": "21:00",
+          "date": "2023"
         }
       ]
     },
-    { "name": "Beta",
+    {
+      "name": "Beta",
+      "isOccupied": true,
+      "occupiedBy": "name",
+      "bookings": []
+    },
+    {
+      "name": "Gamma",
       "isOccupied": false,
       "occupiedBy": "name",
-      "bookings": [
-        
-      ]
+      "bookings": []
+    },
+    {
+      "name": "Delta",
+      "isOccupied": true,
+      "occupiedBy": "name",
+      "bookings": []
     }
   ]
 }

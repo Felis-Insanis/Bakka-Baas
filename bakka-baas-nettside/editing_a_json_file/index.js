@@ -1,20 +1,21 @@
 const express = require('express');
+const cors = require("cors")
 const fs = require('fs');
 const { json } = require('stream/consumers');
 const app = express();
 const port = 3001;
 
+app.use(cors())
+
  
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
  
 // Rest of your server setup
- 
-app.listen(port, () => { // repeats port
-    console.log(`Server lytter på port ${port}`);
-});
+app.use(express.json());
+
  
 app.get('/', function(request, response){ // shows "Hello World!" on the screen
     response.send('Hello world!');
@@ -26,29 +27,20 @@ app.get('/info', function(request, response){ // shows the places.json file
     response.send(jsonData)
 });
  
+  
+
+app.post('/info/', function(request, response){
  
-app.post('/info/:name-:startDate-:endDate-:date', function(request, response){
- 
-    const newName = request.params.name
-    const startD = request.params.startDate
-    const endD = request.params.endDate
-    const Date = request.params.date
+    const newBook = request.body;
+    
     fs.readFile('places.json', 'utf8', function readFileCallback(err, data){
         if (err){
             console.log(err);
         } else {
         obj = JSON.parse(data); //now it an object
         console.log(obj['båser'][0]['bookings'])
-        let booking3 = {
-            "name": newName,
-            "start": startD,
-            "end": endD,
-            "date": Date
-            
-            
-        }
-        console.log(booking3)
-        obj['båser'][0]['bookings'].push(booking3) //add some data
+        
+        obj['båser'][0]['bookings'].push(newBook) //add some data
        
         
  
@@ -72,3 +64,9 @@ app.post('/info/:name-:startDate-:endDate-:date', function(request, response){
 app.get("/date", function(request, response){
     response.send(Date());
 })
+
+
+ 
+app.listen(port, () => { // repeats port
+    console.log(`Server lytter på port ${port}`);
+});
