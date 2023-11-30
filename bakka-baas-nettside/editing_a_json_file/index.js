@@ -92,7 +92,10 @@ function checkDates() {
         }
 
         const json_data = JSON.parse(data);
-        const current_date = new Date();
+        const dateRaw = new Date();
+        console.log(dateRaw)
+        const currentDate = Date.parse(dateRaw).toString()
+        console.log(currentDate)
 
         // json_data.bookings.forEach((booking) => {
         //     const start_date = new Date(booking.start_date);
@@ -102,18 +105,19 @@ function checkDates() {
         // });
 
         // Write the updated JSON back to the file
-        fs.writeFile(jsonFilePath, JSON.stringify(json_data, null, 2), 'utf8', (err) => {
-            if (err) {
-                console.error(err);
-            }
-        });
+        // fs.writeFile(jsonFilePath, JSON.stringify(json_data, null, 2), 'utf8', (err) => {
+        //     if (err) {
+        //         console.error(err);
+        //     }
+        // });
     });
 }
+
 
 // Run the checkDates function every hour (3600000 milliseconds)
 // setInterval(checkDates, 3600000);
 
 // // Call checkDates once to perform the initial check
-// checkDates();
+checkDates();
 
 // Continue with the rest of your program...
