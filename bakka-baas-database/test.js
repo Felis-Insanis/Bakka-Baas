@@ -1,6 +1,6 @@
-const fs = require('fs');
-const { DateTime } = require('luxon');
-const cron = require('node-cron');
+import fs from "fs";;
+import { DateTime } from 'luxon';
+import cron from "node-cron";
 
 // Read the JSON file
 let data = fs.readFileSync('places.json');
@@ -9,15 +9,14 @@ let bookingsData = JSON.parse(data);
 
 function updateIsOccupied(booking) {
     const currentDateTime = DateTime.local();
-    const bookingStartDateTime = DateTime.fromFormat(`${booking.date} ${booking.start}`, 'yyyy:MM:dd HH:mm:ss');
-    const bookingEndDateTime = DateTime.fromFormat(`${booking.date} ${booking.end}`, 'yyyy:MM:dd HH:mm:ss');
+    const bookingStartDateTime = DateTime.fromFormat(`${booking.date} ${booking.start}`, 'yyyy-MM-dd HH:mm');
+    const bookingEndDateTime = DateTime.fromFormat(`${booking.date} ${booking.end}`, 'yyyy-MM-dd HH:mm');
     return currentDateTime >= bookingStartDateTime && currentDateTime <= bookingEndDateTime;
 }
 
 
-
 // Read and update the JSON file
-function updateBookings() {
+export default function updateBookings() {
     let data = fs.readFileSync('places.json');
     let bookingsData = JSON.parse(data);
 
@@ -31,6 +30,8 @@ function updateBookings() {
 
     console.log('Updated bookings:', JSON.stringify(bookingsData, null, 2));
 }
+
+updateBookings();
 
 // Schedule the task to run every minute
 cron.schedule('* * * * *', () => {

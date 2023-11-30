@@ -1,9 +1,10 @@
-const express = require('express');
-const cors = require("cors")
-const fs = require('fs');
-const { json } = require('stream/consumers');
+import express from "express";
+import cors from "cors";
+import fs from "fs";
+import { json } from "node:stream/consumers";
 const app = express();
-const port = 3001;
+const port = 3000;
+
 
 app.use(cors(), express.json())
 
@@ -19,8 +20,35 @@ app.get('/info', function(request, response){ // shows the places.json file
     const jsonData = JSON.parse(data);
     response.send(jsonData)
 });
- 
-  
+ // Read the JSON file
+// let JSONDATA = fs.readFileSync('places.json');
+// let bookingsJSONDATA = JSON.parse(JSONDATA);
+
+
+// function updateIsOccupied(booking) {
+//     const currentDateTime = DateTime.local();
+//     const bookingStartDateTime = DateTime.fromFormat(`${booking.date} ${booking.start}`, 'yyyy-MM-dd HH:mm');
+//     const bookingEndDateTime = DateTime.fromFormat(`${booking.date} ${booking.end}`, 'yyyy-MM-dd HH:mm');
+//     return currentDateTime >= bookingStartDateTime && currentDateTime <= bookingEndDateTime;
+// }
+
+
+// // Read and update the JSON file
+// function updateBookings() {
+//     let JSONDATA = fs.readFileSync('places.json');
+//     let bookingsJSONDATA = JSON.parse(JSONDATA);
+
+//     // Loop through each "båser" and update isOccupied field for each booking
+//     bookingsJSONDATA.båser.forEach(bås => {
+//         bås.isOccupied = bås.bookings.some(updateIsOccupied);
+//     });
+
+//     // Save the updated JSON back to the file
+//     fs.writeFileSync('places.json', JSON.stringify(bookingsJSONDATA, null, 2));
+
+//     console.log('Updated bookings:', JSON.stringify(bookingsJSONDATA, null, 2));
+// }
+
 
 app.post('/info/info/:id', function(request, response){
     
@@ -33,12 +61,12 @@ app.post('/info/info/:id', function(request, response){
         if (err){
             console.log(err);
         } else {
-        obj = JSON.parse(data); //now it an object
+        let obj = JSON.parse(data); //now it an object
         console.log(obj['båser'][id]['bookings'])
         
         obj['båser'][id]['bookings'].push(newBook) //add some data
         
-        allBookings = [] 
+        const allBookings = [] 
         obj['båser'][id]['bookings'].forEach((booking) => {
             let interval = [booking["start"], booking["end"]]
             allBookings.push(interval)
@@ -48,8 +76,8 @@ app.post('/info/info/:id', function(request, response){
 
         obj['båser'][id]['bookings'].forEach((booking) => {
             console.log("Bookings", booking)
-            startDate = newBook["start"] 
-            endDate = newBook["end"] 
+            let startDate = newBook["start"] 
+            let endDate = newBook["end"] 
 
             
             //booking.occupied = start_date <= current_date && current_date <= end_date;
@@ -68,7 +96,7 @@ app.post('/info/info/:id', function(request, response){
             }
         });
     }});
-    
+    //updateBookings()
     response.send("Posted")
 });
 
@@ -117,3 +145,4 @@ function checkDates() {
 // checkDates();
 
 // Continue with the rest of your program...
+

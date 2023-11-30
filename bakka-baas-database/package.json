@@ -1,5 +1,6 @@
 {
   "name": "editing_a_json_file",
+  "type": "module",
   "version": "1.0.0",
   "description": "API that edits a .json file",
   "main": "index.js",
