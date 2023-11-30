@@ -73,7 +73,7 @@ app.post('/info/info/:id', function(request, response){
 });
 
 app.get("/date", function(request, response){
-    response.send((new Date().getTime()).toString());
+    response.send(Date.parse("2023-11-23 09:20:30").toString());
 })
 
 
