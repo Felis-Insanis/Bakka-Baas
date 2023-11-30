@@ -6,16 +6,36 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
 export default function Home() {
-  const [baas1Available, setBaas1Available] = useState(false); // state som kontrollerer om bås 1 er ledig eller ikke
+  const [baas1Available, setBaas1Available] = useState(true); // state som kontrollerer om bås 1 er ledig eller ikke
   const [baas2Available, setBaas2Available] = useState(true);
   const [baas3Available, setBaas3Available] = useState(true);
-  const [baas4Available, setBaas4Available] = useState(false);
+  const [baas4Available, setBaas4Available] = useState(true);
   const checkmarkStyles = "w-10 h-10";
   const xIconStyles = "w-11 h-11 text-red-500";
   const parentDivBaasStyles =
     "flex flex-col gap-3 border-2 p-3 justify-center items-start pl-8 h-full w-full rounded-md";
   const childDivBaasStyles =
     "flex flex-row gap-4 w-full h-16 items-center items-center";
+  // const fetchData = (async) => {};
+  fetch("http://10.58.176.42:3001/info")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.båser[0]);
+      if (data.båser[0].isOccupied === true) {
+        setBaas2Available(false);
+      }
+      if (data.båser[1].isOccupied === true) {
+        setBaas2Available(false);
+      }
+      if (data.båser[2].isOccupied === true) {
+        setBaas3Available(false);
+      }
+      if (data.båser[3].isOccupied === true) {
+        setBaas4Available(false);
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+
   return (
     <main className="flex flex-col gap-20 w-screen h-screen bg-1">
       <Navbar />
