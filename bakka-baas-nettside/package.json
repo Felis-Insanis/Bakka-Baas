@@ -19,6 +19,7 @@
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.16",
     "dayjs": "^1.11.10",
+    "cors": "^2.8.5",
     "next": "^14.0.3",
     "react": "^17.0.2",
     "react-calendar": "^4.6.1",
