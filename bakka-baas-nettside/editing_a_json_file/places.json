@@ -9,19 +9,12 @@
           "name": "Max",
           "start": "10:30",
           "end": "11:00",
-          "date": "10:11:23"
-        },
-        {
-          "name": "Jonas",
-          "start": "10",
-          "end": "2040",
-          "date": "2044"
+          "date": "10-11-23"
         },
         {
           "name": "Henrik",
-          "start": "20:00",
-          "end": "21:00",
-          "date": "2023"
+          "start": "10:00",
+          "end": "11:00"
         }
       ]
     },
@@ -29,7 +22,11 @@
       "name": "Beta",
       "isOccupied": true,
       "occupiedBy": "name",
-      "bookings": []
+      "bookings": [
+        {
+          "name": "sdf"
+        }
+      ]
     },
     {
       "name": "Gamma",

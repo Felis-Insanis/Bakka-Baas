@@ -5,16 +5,9 @@ const { json } = require('stream/consumers');
 const app = express();
 const port = 3001;
 
-app.use(cors())
+app.use(cors(), express.json())
 
- 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
- 
 // Rest of your server setup
-app.use(express.json());
 
  
 app.get('/', function(request, response){ // shows "Hello World!" on the screen
@@ -29,20 +22,38 @@ app.get('/info', function(request, response){ // shows the places.json file
  
   
 
-app.post('/info/', function(request, response){
- 
+app.post('/info/info/:id', function(request, response){
+    
+    const id = request.params.id
     const newBook = request.body;
     
+    
+
     fs.readFile('places.json', 'utf8', function readFileCallback(err, data){
         if (err){
             console.log(err);
         } else {
         obj = JSON.parse(data); //now it an object
-        console.log(obj['båser'][0]['bookings'])
+        console.log(obj['båser'][id]['bookings'])
         
-        obj['båser'][0]['bookings'].push(newBook) //add some data
-       
+        obj['båser'][id]['bookings'].push(newBook) //add some data
         
+        allBookings = [] 
+        obj['båser'][id]['bookings'].forEach((booking) => {
+            let interval = [booking["start"], booking["end"]]
+            allBookings.push(interval)
+        });
+
+        console.log(allBookings)
+
+        obj['båser'][id]['bookings'].forEach((booking) => {
+            console.log("Bookings", booking)
+            startDate = newBook["start"] 
+            endDate = newBook["end"] 
+
+            
+            //booking.occupied = start_date <= current_date && current_date <= end_date;
+        });
  
  
         // Convert the JSON object to a string
@@ -62,7 +73,7 @@ app.post('/info/', function(request, response){
 });
 
 app.get("/date", function(request, response){
-    response.send(Date());
+    response.send((new Date().getTime()).toString());
 })
 
 
@@ -70,3 +81,39 @@ app.get("/date", function(request, response){
 app.listen(port, () => { // repeats port
     console.log(`Server lytter på port ${port}`);
 });
+
+const jsonFilePath = 'places.json'
+function checkDates() {
+    // Read the JSON file
+    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        const json_data = JSON.parse(data);
+        const current_date = new Date();
+
+        // json_data.bookings.forEach((booking) => {
+        //     const start_date = new Date(booking.start_date);
+        //     const end_date = new Date(booking.end_date);
+
+        //     booking.occupied = start_date <= current_date && current_date <= end_date;
+        // });
+
+        // Write the updated JSON back to the file
+        fs.writeFile(jsonFilePath, JSON.stringify(json_data, null, 2), 'utf8', (err) => {
+            if (err) {
+                console.error(err);
+            }
+        });
+    });
+}
+
+// Run the checkDates function every hour (3600000 milliseconds)
+// setInterval(checkDates, 3600000);
+
+// // Call checkDates once to perform the initial check
+// checkDates();
+
+// Continue with the rest of your program...
