@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Navbar from "./components/navbar";
 import { FcCheckmark } from "react-icons/fc";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
 export default function Home() {
@@ -17,23 +17,32 @@ export default function Home() {
   const childDivBaasStyles =
     "flex flex-row gap-4 w-full h-16 items-center items-center";
 
-  fetch("http://171.23.6.112:3001/info")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.båser[0]);
-      if (data.båser[0].isOccupied === true) {
-        setBaas1Available(false);
-      }
-      if (data.båser[1].isOccupied === true) {
-        setBaas2Available(false);
-      }
-      if (data.båser[2].isOccupied === true) {
-        setBaas3Available(false);
-      }
-      if (data.båser[3].isOccupied === true) {
-        setBaas4Available(false);
-      }
-    });
+  const getInfo = async () => {
+    try {
+      const response = await fetch("http://10.58.176.42:3000/info")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.båser[0]);
+          if (data.båser[0].isOccupied === true) {
+            setBaas1Available(false);
+          }
+          if (data.båser[1].isOccupied === true) {
+            setBaas2Available(false);
+          }
+          if (data.båser[2].isOccupied === true) {
+            setBaas3Available(false);
+          }
+          if (data.båser[3].isOccupied === true) {
+            setBaas4Available(false);
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  setInterval(() => {
+    getInfo();
+  }, 60000);
 
   return (
     <main className="flex flex-col gap-20 w-screen h-screen bg-1">
