@@ -1,0 +1,92 @@
+{
+  "båser": [
+    {
+      "name": "Alpha",
+      "occupiedBy": "name",
+      "isOccupied": true,
+      "bookings": [
+        {
+          "name": "Carlo",
+          "start": "12:56",
+          "end": "13:00",
+          "date": "2023-11-30"
+        },
+        {
+          "name": "Jonas",
+          "start": "13:13",
+          "end": "14:00",
+          "date": "2023-11-30"
+        },
+        {
+          "name": "Henrik",
+          "start": "23:00",
+          "end": "23:59",
+          "date": "2023-11-30"
+        }
+      ]
+    },
+    {
+      "name": "Beta",
+      "occupiedBy": "name",
+      "isOccupied": false,
+      "bookings": [
+        {
+          "name": "Attila",
+          "start": "13:04",
+          "end": "14:04",
+          "date": "2023-11-30"
+        }
+      ]
+    },
+    {
+      "name": "Gamma",
+      "occupiedBy": "name",
+      "isOccupied": true,
+      "bookings": [
+        {
+          "name": "Hei",
+          "start": "12:36",
+          "end": "13:00",
+          "date": "2023-11-30"
+        },
+        {
+          "name": "Henrik",
+          "start": "23:00",
+          "end": "23:59",
+          "date": "2023-11-30"
+        }
+      ]
+    },
+    {
+      "name": "Delta",
+      "occupiedBy": "name",
+      "isOccupied": false,
+      "bookings": [
+        {
+          "name": "Magnus Tvilde",
+          "start": "13:00",
+          "end": "14:00",
+          "date": "2023-11-30"
+        },
+        {
+          "name": "Magnus Tvilde",
+          "start": "13:00",
+          "end": "14:00",
+          "date": "2023-11-30"
+        },
+        {
+          "name": "Magnus Tvilde",
+          "start": "13:00",
+          "end": "14:00",
+          "date": "2023-11-30"
+        },
+        {
+          "name": "hls",
+          "start": "12:54",
+          "end": "12:55",
+          "date": "2023-11-30"
+        }
+      ]
+    }
+  ]
+}

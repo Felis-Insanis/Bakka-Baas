@@ -1,0 +1,24 @@
+{
+  "båser": [
+    {
+      "name": "Alpha",
+      "isOccupied": false,
+      "occupiedBy": "name",
+      "bookings": [
+        {
+          "name": "Max",
+          "start": "10:30:00",
+          "end": "11:30:00",
+          "date": "2023:11:30",
+          "isOccupied": true
+        }
+      ]
+    },
+    {
+      "name": "Beta",
+      "isOccupied": false,
+      "occupiedBy": "name",
+      "bookings": []
+    }
+  ]
+}
