@@ -3,7 +3,7 @@
 
 
 ## Description :clipboard:
-web app for å booke båser på elvebakken IM. Bok en bås på forhånd og sikre deg en plass. Appen er bygget med Next på frontend-en og bruker express.js til å hoste en JSON fil på server siden. Det gjorde vi fordi vi tenkte det var kult å bygge en database selv. 
+web app for å booke båser på elvebakken IM. Bok en bås på forhånd og sikre deg en plass. Appen er bygget med Next på frontend-en og bruker express.js til å hoste en JSON fil på server side. Det gjorde vi fordi vi tenkte det var kult å bygge en database selv og vi trengte ikke ett komplisert backend oppsett. Per nå, er det ikke hostet på en nettside, men må hostes lokalt gjennom koden, og localhost. 
 
 ## Installation :wrench:
 
