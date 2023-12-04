@@ -21,7 +21,7 @@ export default function Navbar() {
         </Link>
       </section>
       <section className="flex justify-between px-10 w-1/3">
-        <Link href="/booking" className={linkstyles}>
+        <Link href="/booking/0" className={linkstyles}>
           <span className={spanstyles}> book en bås</span>
         </Link>
         <Link href="/kontakt" className={linkstyles}>

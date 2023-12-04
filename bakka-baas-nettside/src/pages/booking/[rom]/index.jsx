@@ -1,22 +1,30 @@
+import Navbar from "@/pages/components/navbar";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useRef, useState } from "react";
-import Navbar from "../components/navbar";
+import { useRouter } from "next/router";
 
 export default function Booking() {
+  const [showPopup, setShowPopup] = useState(false);
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     start: "",
     end: "",
     date: "",
   });
-
+  console.log(router.query.rom);
   const [baas, setbaas] = useState(0);
+
+  useEffect(() => {
+    setbaas(parseInt(router.query.rom));
+  }, [router]);
+
   const handleSelectChange = (e) => {
     setbaas(e.target.value);
   };
 
   function callMe(id) {
-    fetch(`http://10.58.176.42:3000/info/info/${id}`, {
+    fetch(`http://10.58.177.101:3000/info/info/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -28,6 +36,8 @@ export default function Booking() {
   function handleSubmit(e) {
     e.preventDefault();
     callMe(parseInt(baas));
+    location.reload();
+    setShowPopup(true);
   }
 
   function handleInputChange(e) {
@@ -60,7 +70,7 @@ export default function Booking() {
             id="name"
             value={formData.name}
             onChange={handleInputChange}
-            className="text-white bg-transparent border border-white rounded-lg outline-none p-2"
+            className="text-white bg-transparent border border-white rounded-lg outline-none p-2 focus:border-green-400"
           />{" "}
           <label className="">Velg bås</label>
           <select
