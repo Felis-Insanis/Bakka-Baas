@@ -3,7 +3,7 @@
 
 
 ## Description :clipboard:
-> Book båser på en nettside. 
+web app for å booke båser på elvebakken IM. Bok en bås på forhånd og sikre deg en plass. Appen er bygget med Next på frontend-en og bruker express.js til å hoste en JSON fil på server siden. Det gjorde vi fordi vi tenkte det var kult å bygge en database selv. 
 
 ## Installation :wrench:
 
@@ -11,11 +11,6 @@
 2. `cd Bakka-Baas`
 3. `npm install`
 4. `npm run dev`
-
-## Useful Links: :link:
-
-1. [Next JS Docs](https://nextjs.org/learn/basics/getting-started/setup)
-
 
 
 ## Common Commands :computer:
@@ -26,8 +21,8 @@
 
 ## Built With :zap:
 
-1. Node
-2. React
-3. Next JS
+
+1. Next 
+2. Express.js
 4. Tailwind CSS 
 
